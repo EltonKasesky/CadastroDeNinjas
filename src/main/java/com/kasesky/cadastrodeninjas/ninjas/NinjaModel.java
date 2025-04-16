@@ -1,5 +1,6 @@
-package com.kasesky.cadastrodeninjas;
+package com.kasesky.cadastrodeninjas.ninjas;
 
+import com.kasesky.cadastrodeninjas.missoes.MissoesModel;
 import jakarta.persistence.*;
 
 // Entity, ele transforma uma classe em uma entidade do BD
@@ -14,6 +15,11 @@ public class NinjaModel {
     private String nome;
     private String email;
     private Integer idade;
+
+    // @ManyToOne - Um ninja tem uma unica missao
+    @ManyToOne()
+    @JoinColumn(name = "missoes_id") //Foreign Key
+    private MissoesModel missoes;
 
     public NinjaModel() {
     }
